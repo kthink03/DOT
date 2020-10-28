@@ -1,15 +1,26 @@
 package com.example.dataoftoday;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.dataoftoday.R;
 
-public class SplashActivity extends AppCompatActivity {
-
-    protected void oncreate(Bundle savedInstanceState){
+public class SplashActivity extends Activity{
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getApplicationContext(), com.example.dataoftoday.MainActivity.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_splash);
+        Handler hd=new Handler();
+        hd.postDelayed(new splashhandler(),3000);
+    }
+    private class splashhandler implements Runnable{
+        public void run(){
+            startActivity(new Intent(getApplication(),MainActivity.class));
+            SplashActivity.this.finish();
+        }
+    }
+    public void onBackPressed(){
+
     }
 }

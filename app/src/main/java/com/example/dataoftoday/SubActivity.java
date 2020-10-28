@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dot.R;
+import com.example.dataoftoday.R;
 
 public class SubActivity extends AppCompatActivity {
 

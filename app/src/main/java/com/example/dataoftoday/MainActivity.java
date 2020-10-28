@@ -8,11 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.dot.R;
+import com.example.dataoftoday.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG="dot";
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
