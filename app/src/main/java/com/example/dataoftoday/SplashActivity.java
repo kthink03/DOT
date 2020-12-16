@@ -5,14 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.dataoftoday.R;
 
 public class SplashActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Handler hd=new Handler();
-        hd.postDelayed(new splashhandler(),3000);
+        hd.postDelayed(new splashhandler(),100);
     }
     private class splashhandler implements Runnable{
         public void run(){
