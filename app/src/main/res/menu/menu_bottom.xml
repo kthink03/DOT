@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/tab1"
+        app:showAsAction="always"
+        android:icon="@drawable/menu_more"
+        android:enabled="true"
+        android:checked="true"
+        android:title="DOTS" />
+
+    <item
+        android:id="@+id/tab2"
+        app:showAsAction="always"
+        android:icon="@drawable/menu_calendar"
+        android:enabled="true"
+        android:checked="true"
+        android:title="DOT" />
+
+    <item
+        android:id="@+id/tab3"
+        app:showAsAction="always"
+        android:icon="@drawable/menu_setting"
+        android:enabled="true"
+        android:checked="true"
+        android:title="Setting" />
+
+
+</menu>
