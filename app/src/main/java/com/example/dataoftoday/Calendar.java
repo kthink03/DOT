@@ -1,6 +1,7 @@
 package com.example.dataoftoday;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -8,11 +9,14 @@ import android.os.Bundle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.EventLog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+
 
 class OneDayDecorator implements DayViewDecorator {
     private CalendarDay date;
@@ -92,10 +97,10 @@ class EventDecorator implements DayViewDecorator {
 
 
     private final Drawable drawable;
-    private int color;
+
     private HashSet<CalendarDay> dates;
     private TextView textView;
-    public EventDecorator(Collection<CalendarDay> dates, Activity context, TextView textView) {
+    public EventDecorator(Collection<CalendarDay> dates, Activity context) {
         drawable = context.getResources().getDrawable(R.drawable.calendar_background);
 
         this.dates = new HashSet<>(dates);
@@ -119,28 +124,32 @@ class EventDecorator implements DayViewDecorator {
 }
 
 public class Calendar extends Fragment{
-   MaterialCalendarView materialCalendarView;
 
+    private static final String TAG ="dataoftoday";
+    public ArrayList<CalendarDay> calendarDayList=new ArrayList<>(); //0월이 1월이니까 DB 삽입할때 여기에 +1 해서 넣어주기
+
+    MaterialCalendarView materialCalendarView;
+    DatabaseManager databaseManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup viewGroup;
         viewGroup=(ViewGroup) inflater.inflate(R.layout.calendar,container,false);
+
         materialCalendarView= viewGroup.findViewById(R.id.calendarView);
         OneDayDecorator oneDayDecorator=new OneDayDecorator(this);
+        calendarDayList.add(CalendarDay.today());
+        calendarDayList.add(CalendarDay.from(2020,11,25));
+        calendarDayList.add(CalendarDay.from(2020, 11, 26));
+        Log.d(TAG,"날짜들"+calendarDayList);
+        EventDecorator eventDecorator=new EventDecorator(calendarDayList,getActivity());
 
         materialCalendarView.addDecorators(
                 new SundayDecorator(),
                 new SaturdayDecorator(),
-                oneDayDecorator
+                oneDayDecorator,
+                eventDecorator
         );
-
-        ArrayList<CalendarDay> calendarDayList = new ArrayList<>();
-        calendarDayList.add(CalendarDay.today());
-        calendarDayList.add(CalendarDay.from(2020, 11, 25));
-
-
-
         return viewGroup;
     }
 
