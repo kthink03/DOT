@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--에디트 텍스트가 포커스를 받았을때의 모양 및 색상-->
+    <item android:state_focused="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:color="@color/blue"/>
+                <corners android:radius="4dp">
+                    <solid
+                        android:color="#FFFFFF">
+                    </solid>
+                </corners>
+        </shape>
+    </item>
+
+    <!--에디트 텍스트가 포커스를 받지 않은 상태일때 -->
+    <item android:state_focused="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:color="@color/yellow" />
+            <corners android:radius="4dp">
+                <solid
+                    android:color="#FFFFFF">
+                </solid>
+            </corners>
+        </shape>
+    </item>
+</selector>

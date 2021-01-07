@@ -44,6 +44,7 @@ public class MainActivity<안녕> extends AppCompatActivity {
 
         //제일 처음 띄워줄 뷰를 세팅
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,calendar).commitAllowingStateLoss();
+        bottomNavigationView.setSelectedItemId(R.id.tab2); //내비게이션 바에서 제일 가운데 메뉴를 default로
 
         //메뉴바의 아이콘을 선택했을 때 리스너 설정 + 액션 설정
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -63,7 +64,6 @@ public class MainActivity<안녕> extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,settings).commitAllowingStateLoss();
                         return true;
                     }
-
                     default: return false;
                 }
             }

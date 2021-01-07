@@ -5,21 +5,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="1170px"
         android:layout_weight="1"
-        android:background="@color/ivory"
+        android:background="@color/white"
         app:mcv_selectionColor="@color/blue">
+
     </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
 
-    <EditText
-        android:id="@+id/calendar_edit"
-        android:layout_width="match_parent"
-        android:layout_height="600px"
-        android:background="@drawable/cal_edittext"></EditText>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150px">
+
+        <TextView
+            android:id="@+id/text_who"
+            android:layout_width="300px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="누구와"
+            android:textSize="18sp"
+            app:fontFamily="@font/haru_medium"></TextView>
+
+        <EditText
+            android:id="@+id/edit_who"
+            android:layout_width="780px"
+            android:layout_height="100px"
+            android:layout_toRightOf="@+id/text_who"
+            android:background="@drawable/edittext_rounded_corner_rectangle"
+            android:padding="50px"
+            android:textColor="@color/black"
+            android:textSize="22sp"></EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150px">
+        <TextView
+            android:id="@+id/text_what"
+            android:layout_width="300px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="무엇을"
+            android:textSize="18sp"
+            app:fontFamily="@font/haru_medium"></TextView>
+
+        <EditText
+            android:id="@+id/edit_what"
+            android:layout_width="780px"
+            android:layout_height="100px"
+            android:layout_toRightOf="@+id/text_what"
+            android:background="@drawable/edittext_rounded_corner_rectangle"
+            android:padding="50px"
+            ></EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150px">
+        <TextView
+            android:id="@+id/text_where"
+            android:layout_width="300px"
+            android:layout_height="100px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="어디에서"
+            android:textSize="18sp"
+            app:fontFamily="@font/haru_medium"></TextView>
+
+        <EditText
+            android:id="@+id/edit_where"
+            android:layout_width="780px"
+            android:layout_height="100px"
+            android:layout_toRightOf="@+id/text_where"
+            android:background="@drawable/edittext_rounded_corner_rectangle"
+            android:padding="50px">
+        </EditText>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:background="@drawable/save_button"
+        android:text="저장"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/haru_medium" />
 
 </LinearLayout>

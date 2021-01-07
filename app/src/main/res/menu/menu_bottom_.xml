@@ -7,7 +7,7 @@
         app:showAsAction="always"
         android:icon="@drawable/menu_more"
         android:enabled="true"
-        android:checked="true"
+        android:checked="false"
         android:title="DOTS" />
 
     <item
@@ -23,7 +23,7 @@
         app:showAsAction="always"
         android:icon="@drawable/menu_setting"
         android:enabled="true"
-        android:checked="true"
+        android:checked="false"
         android:title="Setting" />
 
 
