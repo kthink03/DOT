@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class More extends Fragment {
+import com.example.dataoftoday.R;
+
+public class Record extends Fragment {
     ViewGroup viewGroup;
-    @Nullable
-    @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container, @NonNull Bundle savedInstanceState){
-        viewGroup=(ViewGroup) inflater.inflate(R.layout.more,container,false);
+        viewGroup=(ViewGroup) inflater.inflate(R.layout.record,container,false);
         return viewGroup;
     }
 }
+

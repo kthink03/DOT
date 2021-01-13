@@ -3,7 +3,9 @@ package com.example.dataoftoday;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.icu.text.AlphabeticIndex;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -12,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity<안녕> extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG="dot";
 
     public SQLiteDatabase sqLiteDatabase=null; //DB 사용 변수
@@ -22,7 +24,7 @@ public class MainActivity<안녕> extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     Calendar calendar;
-    More more;
+    Record record;
     Settings settings;
 
     @Override
@@ -39,11 +41,11 @@ public class MainActivity<안녕> extends AppCompatActivity {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
 
         calendar= new Calendar();
-        more=new More();
+        record=new Record();
         settings=new Settings();
 
         //제일 처음 띄워줄 뷰를 세팅
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,calendar).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,record).commitAllowingStateLoss();
         bottomNavigationView.setSelectedItemId(R.id.tab2); //내비게이션 바에서 제일 가운데 메뉴를 default로
 
         //메뉴바의 아이콘을 선택했을 때 리스너 설정 + 액션 설정
@@ -53,11 +55,11 @@ public class MainActivity<안녕> extends AppCompatActivity {
                 switch (menuItem.getItemId()){
                     //menu에서 설정했던 id 값에 따라서 동작 설정
                     case R.id.tab1:{
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,more).commitAllowingStateLoss();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,calendar).commitAllowingStateLoss();
                         return true;
                     }
                     case R.id.tab2:{
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,calendar).commitAllowingStateLoss();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,record).commitAllowingStateLoss();
                         return true;
                     }
                     case R.id.tab3:{

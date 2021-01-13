@@ -8,4 +8,6 @@
     <color name="crimson">#EB5F5D</color>
     <color name="blue">#2534FA</color>
     <color name="yellow">#FFF700</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="lightgray">#C2C2C2</color>
 </resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="안뇽 나는 소영이의 첫번째 앱이야    만나서 반가와 잘 부탁해"
+        android:textSize="26dp"
+        android:fontFamily="@font/cookierun"
+        >
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/im1"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="120px"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im2"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im1"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im3"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im2"
+            app:srcCompat="@drawable/menu_record" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:id="@+id/im4"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im5"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im4"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im6"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im5"
+            app:srcCompat="@drawable/menu_record" />
+    </RelativeLayout>
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    >
+        <ImageView
+            android:id="@+id/im7"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im8"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im7"
+            app:srcCompat="@drawable/menu_record" />
+
+        <ImageView
+            android:id="@+id/im9"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/im8"
+            app:srcCompat="@drawable/menu_record" />
+    </RelativeLayout>
+</LinearLayout>

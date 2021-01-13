@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item>항목을 선택해주세요.</item>
+        <item>음식</item>
+        <item>영화</item>
+        <item>책</item>
+        <item>게임</item>
+        <item>웹툰</item>
+        <item>드라마</item>
+        <item>유튜브</item>
+        <item>식당</item>
+        <item>카페</item>
+        <item>노래</item>
+        <item>화장품</item>
+        <item>날씨</item>
+    </string-array>
+</resources>

@@ -5,7 +5,7 @@
     <item
         android:id="@+id/tab1"
         app:showAsAction="always"
-        android:icon="@drawable/menu_more"
+        android:icon="@drawable/menu_calendar"
         android:enabled="true"
         android:checked="false"
         android:title="DOTS" />
@@ -13,7 +13,7 @@
     <item
         android:id="@+id/tab2"
         app:showAsAction="always"
-        android:icon="@drawable/menu_calendar"
+        android:icon="@drawable/menu_record"
         android:enabled="true"
         android:checked="true"
         android:title="DOT" />
