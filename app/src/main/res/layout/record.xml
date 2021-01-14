@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="50px"
         android:layout_weight="1"
         android:text="안뇽 나는 소영이의 첫번째 앱이야    만나서 반가와 잘 부탁해"
         android:textSize="26dp"
@@ -23,31 +23,100 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/im1"
-            android:layout_width="200px"
-            android:layout_height="200px"
+            android:id="@+id/im_book"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginLeft="100px"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="120px"
-            app:srcCompat="@drawable/menu_record" />
+            app:srcCompat="@drawable/icon_book" />
+
+
+        <TextView
+            android:id="@+id/text_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_book"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="57dp"
+            android:layout_marginLeft="57dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="책"
+            android:textSize="18dp" />
 
         <ImageView
-            android:id="@+id/im2"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_cafe"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im1"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_book"
+            app:srcCompat="@drawable/icon_cafe" />
+
+        <TextView
+            android:id="@+id/text_cafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_cafe"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="143dp"
+            android:layout_marginLeft="143dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="카페"
+            android:textSize="18dp" />
 
         <ImageView
-            android:id="@+id/im3"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_food"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im2"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_cafe"
+            app:srcCompat="@drawable/icon_food" />
 
+        <TextView
+            android:id="@+id/text_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_food"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="241dp"
+            android:layout_marginLeft="241dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="음식"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/im_game"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@id/im_food"
+            app:srcCompat="@drawable/icon_game" />
+
+        <TextView
+            android:id="@+id/text_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_game"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="335dp"
+            android:layout_marginLeft="335dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="게임"
+            android:textSize="18dp" />
 
     </RelativeLayout>
 
@@ -56,31 +125,103 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <ImageView
-            android:id="@+id/im4"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/menu_record" />
 
         <ImageView
-            android:id="@+id/im5"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_make"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im4"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            app:srcCompat="@drawable/icon_make" />
+
+        <TextView
+            android:id="@+id/text_make"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_make"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="메이크업"
+            android:textSize="18dp" />
 
         <ImageView
-            android:id="@+id/im6"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_movie"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im5"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_make"
+            app:srcCompat="@drawable/icon_movie" />
+
+        <TextView
+            android:id="@+id/text_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_movie"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="146dp"
+            android:layout_marginLeft="146dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="영화"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/im_music"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@id/im_movie"
+            app:srcCompat="@drawable/icon_music" />
+
+        <TextView
+            android:id="@+id/text_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_music"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="242dp"
+            android:layout_marginLeft="242dp"
+            android:layout_marginTop="15dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="음악"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/im_rest"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_music"
+            app:srcCompat="@drawable/icon_rest" />
+
+        <TextView
+            android:id="@+id/text_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_rest"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="338dp"
+            android:layout_marginLeft="338dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="식당"
+            android:textSize="18dp" />
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -88,30 +229,102 @@
     android:layout_height="0dp"
     android:layout_weight="1"
     >
-        <ImageView
-            android:id="@+id/im7"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/menu_record" />
+
 
         <ImageView
-            android:id="@+id/im8"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_toon"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im7"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            app:srcCompat="@drawable/icon_toon" />
+
+        <TextView
+            android:id="@+id/text_toon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_toon"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="만화"
+            android:textSize="18dp" />
 
         <ImageView
-            android:id="@+id/im9"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_marginLeft="46dp"
+            android:id="@+id/im_tv"
+            android:layout_width="150px"
+            android:layout_height="150px"
             android:layout_marginTop="50dp"
-            android:layout_toRightOf="@+id/im8"
-            app:srcCompat="@drawable/menu_record" />
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@id/im_toon"
+            app:srcCompat="@drawable/icon_tv" />
+
+        <TextView
+            android:id="@+id/text_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_tv"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="132dp"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="프로그램"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/im_weather"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_tv"
+            app:srcCompat="@drawable/icon_weather" />
+
+        <TextView
+            android:id="@+id/text_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_tv"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="242dp"
+            android:layout_marginLeft="242dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="날씨"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/im_youtube"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100px"
+            android:layout_toRightOf="@+id/im_weather"
+            app:srcCompat="@drawable/icon_youtube" />
+
+        <TextView
+            android:id="@+id/text_youtube"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/im_youtube"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="329dp"
+            android:layout_marginLeft="329dp"
+            android:layout_marginTop="13dp"
+
+            android:fontFamily="@font/cookierun"
+            android:text="유튜브"
+            android:textSize="18dp" />
     </RelativeLayout>
+
 </LinearLayout>
