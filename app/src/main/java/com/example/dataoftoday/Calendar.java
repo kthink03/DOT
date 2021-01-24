@@ -122,15 +122,13 @@ class EventDecorator implements DayViewDecorator {
 }
 
 public class Calendar extends Fragment{
-
+//서브 프래그먼트 1
     private static final String TAG ="dataoftoday";
     public ArrayList<CalendarDay> calendarDayList=new ArrayList<>(); //0월이 1월이니까 DB 삽입할때 여기에 +1 해서 넣어주기
-    Context mContext;
     Spinner category_spinner; //카테고리 스피너 생성
 
     String[] str; //생성한 카테고리 item
     MaterialCalendarView materialCalendarView; //캘린더 뷰 사용
-    DatabaseManager databaseManager;
 
 
     @Override
@@ -157,8 +155,6 @@ public class Calendar extends Fragment{
         });
         materialCalendarView= viewGroup.findViewById(R.id.calendarView);
         category_spinner=viewGroup.findViewById(R.id.spinner_category);
-
-
 
         OneDayDecorator oneDayDecorator=new OneDayDecorator(this);
         calendarDayList.add(CalendarDay.today());

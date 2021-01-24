@@ -22,14 +22,18 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_book"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="100px"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/icon_book" />
-
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:maxWidth="150px"
+            android:maxHeight="150px"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_book" />
 
         <TextView
             android:id="@+id/text_book"
@@ -46,10 +50,15 @@
             android:text="책"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_cafe"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_book"
@@ -70,10 +79,15 @@
             android:text="카페"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_food"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_cafe"
@@ -94,10 +108,15 @@
             android:text="음식"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_game"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@id/im_food"
@@ -126,10 +145,15 @@
         android:layout_weight="1"
         >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_make"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             app:srcCompat="@drawable/icon_make" />
@@ -149,10 +173,15 @@
             android:text="메이크업"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_movie"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_make"
@@ -173,10 +202,15 @@
             android:text="영화"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_music"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@id/im_movie"
@@ -197,10 +231,15 @@
             android:text="음악"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_rest"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_music"
@@ -231,10 +270,15 @@
     >
 
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_toon"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             app:srcCompat="@drawable/icon_toon" />
@@ -254,10 +298,15 @@
             android:text="만화"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_tv"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@id/im_toon"
@@ -273,15 +322,19 @@
             android:layout_marginStart="132dp"
             android:layout_marginLeft="132dp"
             android:layout_marginTop="13dp"
-
             android:fontFamily="@font/cookierun"
             android:text="프로그램"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_weather"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_tv"
@@ -302,10 +355,15 @@
             android:text="날씨"
             android:textSize="18dp" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/im_youtube"
-            android:layout_width="150px"
-            android:layout_height="150px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150px"
+            android:maxWidth="150px"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100px"
             android:layout_toRightOf="@+id/im_weather"
@@ -321,7 +379,6 @@
             android:layout_marginStart="329dp"
             android:layout_marginLeft="329dp"
             android:layout_marginTop="13dp"
-
             android:fontFamily="@font/cookierun"
             android:text="유튜브"
             android:textSize="18dp" />

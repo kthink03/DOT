@@ -40,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
         //테이블이 존재하는 경우 기존 데이터를 지우기 위해서 사용
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
 
-        calendar= new Calendar();
+
         record=new Record();
+        //record=(Record)getSupportFragmentManager().findFragmentById(R.id.mainFragment);
+
+        calendar= new Calendar();
         settings=new Settings();
+
+
 
         //제일 처음 띄워줄 뷰를 세팅
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,record).commitAllowingStateLoss();
