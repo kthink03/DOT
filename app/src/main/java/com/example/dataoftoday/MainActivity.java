@@ -1,11 +1,17 @@
 package com.example.dataoftoday;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.icu.text.AlphabeticIndex;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,40 +20,50 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements InsertDB {
     private static final String TAG="dot";
 
-    public SQLiteDatabase sqLiteDatabase=null; //DB 사용 변수
     /*DB 씨퀄 쿼리*/
     private static final String SQL_CREATE_ENTRIES="CREATE TABLE IF NOT EXISTS RECORD (Date TEXT PRIMARY KEY, Who TEXT, Location TEXT, What Text)";
     private static final String SQL_DELETE_ENTRIES="DELETE FROM RECORD";
 
-    BottomNavigationView bottomNavigationView;
-    Calendar calendar;
-    Record record;
-    Settings settings;
+    /*DB 관련*/
+    public SQLiteDatabase sqLiteDatabase=null; //DB 사용 변수
+    private DatabaseManager helper;
+    String DB_Name="Record";
+    int dbVersion=1;
 
+    private FragmentManager fm;
+    private FragmentTransaction tran;
+
+    private BottomNavigationView bottomNavigationView;
+    private Calendar calendar;
+    private Record record;
+    private Settings settings;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
 
-        sqLiteDatabase=this.openOrCreateDatabase("RECORD",MODE_PRIVATE,null);
-
-        //테이블이 존재하지 않으면 새로 생성
-        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
-        //테이블이 존재하는 경우 기존 데이터를 지우기 위해서 사용
-        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
-
+        //sqLiteDatabase=this.openOrCreateDatabase("RECORD",MODE_PRIVATE,null);
+        helper=new DatabaseManager(this,DB_Name,null,dbVersion);
+        try{
+            sqLiteDatabase=helper.getWritableDatabase();
+        }catch(SQLiteException e){
+            e.printStackTrace();
+            Log.e(TAG,"데이터 베이스 없음");
+            finish();
+        }
 
         record=new Record();
-        //record=(Record)getSupportFragmentManager().findFragmentById(R.id.mainFragment);
-
         calendar= new Calendar();
         settings=new Settings();
 
-
+        fm=getFragmentManager();
+        tran=fm.beginTransaction();
 
         //제일 처음 띄워줄 뷰를 세팅
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,record).commitAllowingStateLoss();
@@ -75,5 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void insert(String sDate,String sCategory, String sWhat, String table) {
+        /*DB 삽입 문*/
+        sqLiteDatabase=helper.getWritableDatabase(); //db 작성 권한 받기
+
+        String sql="INSERT INTO RECORD(Date,Category,What) VALUES(sDate,sCategory,sWhat)";
+        sqLiteDatabase.execSQL(sql);
     }
 }

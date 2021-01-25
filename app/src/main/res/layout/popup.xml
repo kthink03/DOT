@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/textview_rounded_rect"
     >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:background="@drawable/textview_rounded_rect">
-
+       >
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/haru_medium"
-            android:gravity="center"
+            android:layout_height="match_parent"
             android:text="오늘의 데이터를 입력해주세요."
-            android:textSize="28dp"></TextView>
+            android:fontFamily="@font/nanumsquare_acr"
+            android:textSize="19sp"
+            android:gravity="center">
+        </TextView>
 
         <ImageButton
             android:id="@+id/button_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="13dp"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:maxWidth="150px"
-            android:maxHeight="150px"
+            android:maxWidth="31dp"
+            android:maxHeight="31dp"
             android:scaleType="fitCenter"
             android:src="@drawable/cancel" />
 
@@ -38,22 +38,26 @@
             android:id="@+id/button_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="237dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginLeft="304dp"
+            android:layout_marginTop="13dp"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:maxWidth="150px"
-            android:maxHeight="150px"
+            android:maxWidth="26dp"
+            android:maxHeight="26dp"
             android:scaleType="fitCenter"
             android:src="@drawable/save" />
 
     </RelativeLayout>
 
     <EditText
+        android:id="@+id/edittext_record"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="13"
-        android:background="@drawable/edittext_rounded_corner_rectangle">
+        android:layout_weight="28"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+       >
 
     </EditText>
 
