@@ -39,13 +39,12 @@
             app:srcCompat="@drawable/arrow_drop" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/cal_text"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:text="HI"
-        android:textSize="100dp">
-    </TextView>
+        android:id="@+id/cal_listview"
+        ></ListView>
+
 
 </LinearLayout>

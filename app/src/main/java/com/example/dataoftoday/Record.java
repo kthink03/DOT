@@ -45,10 +45,12 @@ public class Record extends Fragment {
         View.OnClickListener click =new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String SCategory_value;
+
                 switch (view.getId()){
                     case R.id.im_book:
-                        //Toast.makeText(mContext.getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-                        openDialog();
+                        SCategory_value="책";
+                        openDialog(SCategory_value);
                         break;
                     default:
                         break;
@@ -58,8 +60,12 @@ public class Record extends Fragment {
 
     };
 
-    private void openDialog(){
+    private void openDialog(String s){
        DialogFragment d=DialogFragment.getInstance();
+       Bundle args=new Bundle(); //다이얼 프래그먼트에 전달할 값을 담는 객체 Bunble
+        args.putString("Category",s); //key 값은 카테고리, value값은 해당 카테고리의 명칭
+        d.setArguments(args); //전송
+
        d.show(getFragmentManager(),DialogFragment.TAG_EVENT_DIALOG);
     }
 

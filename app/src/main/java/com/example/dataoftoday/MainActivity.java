@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -15,12 +18,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements InsertDB {
+public class MainActivity extends AppCompatActivity{
     private static final String TAG="dot";
 
     /*DB 씨퀄 쿼리*/
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements InsertDB {
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
 
         //sqLiteDatabase=this.openOrCreateDatabase("RECORD",MODE_PRIVATE,null);
-        helper=new DatabaseManager(this,DB_Name,null,dbVersion);
+        helper=new DatabaseManager(this);
         try{
             sqLiteDatabase=helper.getWritableDatabase();
         }catch(SQLiteException e){
@@ -91,14 +95,5 @@ public class MainActivity extends AppCompatActivity implements InsertDB {
                 }
             }
         });
-    }
-
-    @Override
-    public void insert(String sDate,String sCategory, String sWhat, String table) {
-        /*DB 삽입 문*/
-        sqLiteDatabase=helper.getWritableDatabase(); //db 작성 권한 받기
-
-        String sql="INSERT INTO RECORD(Date,Category,What) VALUES(sDate,sCategory,sWhat)";
-        sqLiteDatabase.execSQL(sql);
     }
 }
