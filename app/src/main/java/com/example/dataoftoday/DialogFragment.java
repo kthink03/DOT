@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Editable;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -29,7 +30,8 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
     public static final String TAG_EVENT_DIALOG="dialog_event";
     public static final String TABLE_NAME = "Record";//Table 이름
 
-    EditText editText;
+    EditText editText; //record 적는 부분
+    EditText Title; //Title 적는 부분
 
     /*DB 저장 관련*/
     DatabaseManager databaseManager;
@@ -37,7 +39,7 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
     int SYear;
     int SMonth;
     int SDay;
-    String SWhat;
+    String SWhat, STitle;
 
     public DialogFragment() {}
     public static DialogFragment getInstance(){
@@ -64,9 +66,10 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
         Save.setOnClickListener(click);
         ImageButton Cancel=(ImageButton)v.findViewById(R.id.button_cancel);
         Cancel.setOnClickListener(click);
+
         /*EditText*/
         editText=(EditText)v.findViewById(R.id.edittext_record);
-
+        Title=(EditText)v.findViewById(R.id.edittext_title);
         setCancelable(false); //프래그먼트 밖의 영역을 터치하여도 화면이 dismiss 되는 것을 막음
         return v;
     }
@@ -79,12 +82,11 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
                 case R.id.button_save:
                     //저장 버튼을 누른 경우
                     getTime();
-                    SWhat=checkString();
+                    SWhat=editText.getText().toString();
+                    STitle=Title.getText().toString();
                     Log.d(TAG,"날짜 값"+SYear+"-"+SMonth+"-"+SDay);
                     if(SWhat!=null){
-                        //in.insert(SYear,SMonth,SDay,SCategory_value,SWhat,TABLE_NAME);
-                        databaseManager.insert(SYear,SMonth,SDay,SCategory_value,SWhat,TABLE_NAME);
-                        sendDATE(SYear,SMonth,SDay);
+                        openSmallDialog();
                     }
                 case R.id.button_cancel:
                     //나가기 버튼을 누른 경우
@@ -117,25 +119,30 @@ public class DialogFragment extends androidx.fragment.app.DialogFragment impleme
         SDay=cld.get(Calendar.DATE);
 
     }
-    private String checkString(){
-        String s=editText.getText().toString();
-        if(s.length()==0){ //edittext에 담긴 값이 없는 경우
-            Toast.makeText(getContext().getApplicationContext(),"메시지가 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
-            return null;
+    private void checkString(){
+        if(STitle.length()==0){ //타이틀이 없는 경우
+            Toast.makeText(getContext().getApplicationContext(),"타이틀이 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
         }
-        else{
-            return s;
+        else if(SWhat.length()==0){
+            //레코드가 없는 경우
+            Toast.makeText(getContext().getApplicationContext(),"데이터가 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
         }
+
     }
-    private void sendDATE(int sYear,int sMonth,int sDay){
-        com.example.dataoftoday.Calendar cal=new com.example.dataoftoday.Calendar();
 
-        int y=sYear;
-        int m=sMonth;
-        int d=sDay;
+    private void openSmallDialog(){
+        SmallDialogFragment sd=SmallDialogFragment.getInstance();
+        Bundle args=new Bundle(); //작은 다이얼 프래그먼트에 전달할 값을 담는 객체 Bunble
 
-        Bundle args_date=new Bundle();
-        args_date.putInt("Year",y); //key 값은 카테고리, value값은 해당 카테고리의 명칭
-        cal.setArguments(args_date);
+        args.putString("Category",SCategory_value); //key 값은 카테고리, value값은 해당 카테고리의 명칭
+        args.putInt("Year",SYear);
+        args.putInt("Month",SMonth);
+        args.putInt("Day",SDay);
+        args.putString("Title",STitle);
+        args.putString("What",SWhat);
+        args.putString("Table",TABLE_NAME);
+        sd.setArguments(args); //전송
+
+        sd.show(getFragmentManager(),SmallDialogFragment.TAG_EVENT_DIALOG);
     }
 }

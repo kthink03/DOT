@@ -18,13 +18,31 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingLeft="0dp">
-            <TextView
-                android:id="@+id/listview_textTitle"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Test"
-                android:textSize="15dp">
-            </TextView>
+           <RelativeLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+
+               <TextView
+                   android:id="@+id/list_title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Title: "
+                   android:textSize="20dp"
+                   android:textColor="#4460FF"
+                   android:fontFamily="@font/nanumsquare_acr">
+               </TextView>
+
+               <TextView
+                   android:id="@+id/listview_textTitle"
+                   android:layout_width="match_parent"
+                   android:layout_height="50dp"
+                   android:layout_toRightOf="@+id/list_title"
+                   android:text="내용"
+                   android:fontFamily="@font/nanumsquare_acr"
+                   android:textSize="15dp">
+               </TextView>
+
+           </RelativeLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,17 +55,37 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5">
-                <ImageView
-                    android:id="@+id/listview_icon"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_book"/>
-                <TextView
-                    android:id="@+id/listview_text"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="테스트입니다."/>
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/listview_icon"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_book" />
+                    <TextView
+                        android:id="@+id/title_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_toRightOf="@+id/listview_icon"
+                        android:textColor="#F981CC"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:text="Record:"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="20dp"
+                        ></TextView>
+                    <TextView
+                        android:id="@+id/listview_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/title_record"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/nanumsquare_acr"
+                        android:text="테스트입니다."/>
+                </RelativeLayout>
+
+
             </LinearLayout>
 
         </LinearLayout>

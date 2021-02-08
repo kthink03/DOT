@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
 
-        //sqLiteDatabase=this.openOrCreateDatabase("RECORD",MODE_PRIVATE,null);
         helper=new DatabaseManager(this);
         try{
             sqLiteDatabase=helper.getWritableDatabase();
@@ -66,8 +65,8 @@ public class MainActivity extends AppCompatActivity{
         calendar= new Calendar();
         settings=new Settings();
 
-        fm=getFragmentManager();
-        tran=fm.beginTransaction();
+//        fm=getFragmentManager();
+//        tran=fm.beginTransaction();
 
         //제일 처음 띄워줄 뷰를 세팅
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout,record).commitAllowingStateLoss();

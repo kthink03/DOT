@@ -127,7 +127,7 @@ class EventDecorator implements DayViewDecorator {
 
 public class Calendar extends Fragment{
 //서브 프래그먼트 1
-    private static final String TAG ="dataoftoday";
+    private static final String TAG ="Calendar";
     private boolean Click=false; //캘린더 클릭 여부 확인
     public Context mContext;
     public ArrayList<CalendarDay> calendarDayList=new ArrayList<>(); //0월이 1월이니까 DB 삽입할때 여기에 +1 해서 넣어주기
@@ -172,19 +172,19 @@ public class Calendar extends Fragment{
         listView=(ListView)viewGroup.findViewById(R.id.cal_listview);
         listView.setAdapter(adapter);
 
-        adapter.addItem("안녕",R.drawable.icon_book,"ㅎㅎ");
-        adapter.addItem("제발",R.drawable.icon_cafe,"ㅜㅜ");
-        adapter.notifyDataSetChanged();
-        //spinner 이벤트 리스너
+
         category_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i!=0&&Click){
-                    Toast.makeText(mContext.getApplicationContext(),str[i]+"을(를) 선택하였습니다.",Toast.LENGTH_SHORT).show();
-                    showRecord(str[i]);
-                }
-                else{
-                    Toast.makeText(mContext.getApplicationContext(),"먼저 날짜를 선택해주세요.",Toast.LENGTH_SHORT).show();
+                while(i!=0){
+                    if(Click){
+                        Toast.makeText(mContext.getApplicationContext(),str[i]+"을(를) 선택하였습니다.",Toast.LENGTH_SHORT).show();
+                        showRecord(str[i]);
+                        break;
+                    }
+                    else{
+                        Toast.makeText(mContext.getApplicationContext(),"먼저 날짜를 선택해주세요.",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -241,13 +241,28 @@ public class Calendar extends Fragment{
     private void showRecord(String Category){
         Cursor c=DBManager.showRecord(Category,Click_Year,Click_Month,Click_Day);
         int count=c.getCount();
-        String Record;
-        for(int i=0;i<count;i++){
-            Log.d(TAG,"HI"+count);
-            c.moveToNext();
-            Record=c.getString(0);
+        String Record,Title;
+        int Eval=0;
 
-            Log.d(TAG,"Calander_RecordValues"+Record);
+        for(int i=0;i<count;i++){
+            Log.d(TAG,"COUNT "+count);
+            c.moveToNext();
+            Title=c.getString(0);
+            Record=c.getString(1);
+            Eval=c.getInt(2);
+            Log.d(TAG,"Title: "+Title+" Record: "+Record+" Eval: "+Eval);
+
+            if(Eval==1){
+                //좋아요인경우
+                adapter.addItem(Title,R.drawable.redheart,Record);
+            }
+            else if(Eval==2){
+                //싫어요 인경우
+                adapter.addItem(Title,R.drawable.blackheart,Record);
+            }
+
+
         }
+        adapter.notifyDataSetChanged();
     }
 }
